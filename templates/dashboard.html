@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #0078d4; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Link Analytics Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Original URL</th>
+                <th>Short Code</th>
+                <th>Created At</th>
+                <th>Total Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in stats %}
+            <tr>
+                <td>{{ row['original_url'] }}</td>
+                <td>{{ row['short_code'] }}</td>
+                <td>{{ row['created_at'] }}</td>
+                <td><strong>{{ row['clicks'] }}</strong></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
